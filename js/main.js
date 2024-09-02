@@ -84,19 +84,19 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             title: "Shopping Cart",
             description: "A dynamic cart system with features for adding, updating, and removing items.",
-            image: "https://gobind147.github.io/Portfolio-Gobind/public/assets/shoppingcart.jpg",
+            image: "public/assets/shoppingcart.jpg",
             link: "https://github.com/Gobind147/Shopping-Cart"
         },
         {
             title: "Task Manager API",
             description: "A CRUD-based task management API using Node.js, Express, and MongoDB.",
-            image: "https://gobind147.github.io/Portfolio-Gobind/public/assets/Task-manager-apps-scaled.jpg",
+            image: "public/assets/Task-manager-apps-scaled.jpg",
             link: "https://github.com/Gobind147/Task-Manager"
         },
         {
             title: "Self-Driving Car Control",
             description: "Implemented PID controller for lateral control and adaptive cruise control for longitudinal control.",
-            image: "https://gobind147.github.io/Portfolio-Gobind/public/assets/selfdrivingnew.png",
+            image: "public/assets/selfdrivingnew.png",
             link: "https://github.com/Gobind147/Lateral-and-Logitudinal-Control-of-Self-Driving-Vehicle"
         }
     ];
