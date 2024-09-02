@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Leaflet.js for interactive maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
 </head>
 <body>
     <!--==================== HEADER ====================-->
@@ -22,6 +24,7 @@
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                     <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                     <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="#map" class="nav__link">Map</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                 </ul>
             </div>
@@ -71,24 +74,7 @@
             <div class="container">
                 <h2 class="section__title">Skills</h2>
                 <div class="skills__grid">
-                    <div class="skills__item"><i class="fab fa-cuttlefish"></i><span>C++</span></div>
-                    <div class="skills__item"><i class="fab fa-cuttlefish"></i><span>C#</span></div>
-                    <div class="skills__item"><i class="fab fa-java"></i><span>Java</span></div>
-                    <div class="skills__item"><i class="fab fa-python"></i><span>Python</span></div>
-                    <div class="skills__item"><i class="fab fa-html5"></i><span>HTML5</span></div>
-                    <div class="skills__item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-                    <div class="skills__item"><i class="fab fa-js"></i><span>JavaScript</span></div>
-                    <div class="skills__item"><i class="fas fa-database"></i><span>MySQL</span></div>
-                    <div class="skills__item"><i class="fas fa-database"></i><span>PostgresQL</span></div>
-                    <div class="skills__item"><i class="fas fa-database"></i><span>MongoDB</span></div>
-                    <div class="skills__item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-                    <div class="skills__item"><i class="fab fa-react"></i><span>React.js</span></div>
-                    <div class="skills__item"><i class="fas fa-server"></i><span>Express.js</span></div>
-                    <div class="skills__item"><i class="fas fa-camera"></i><span>OpenCV</span></div>
-                    <div class="skills__item"><i class="fas fa-chart-line"></i><span>NumPy</span></div>
-                    <div class="skills__item"><i class="fas fa-chart-bar"></i><span>Pandas</span></div>
-                    <div class="skills__item"><i class="fas fa-chart-pie"></i><span>Chart.js</span></div>
-                    <div class="skills__item"><i class="fab fa-github"></i><span>Git & GitHub</span></div>
+                    <canvas id="myChart"></canvas> <!-- Chart.js canvas -->
                 </div>
             </div>
         </section>
@@ -97,53 +83,28 @@
         <section class="projects section" id="projects">
             <div class="projects__container container swiper-container">
                 <h2 class="section__title">Projects</h2>
-                <div class="swiper-wrapper">
-                    <!-- Project Item 1 -->
-                    <div class="swiper-slide">
-                        <div class="project__item">
-                            <img src="assets/shoppingcart.jpg" alt="Shopping Cart" class="project__img">
-                            <div class="project__content">
-                                <h3 class="project__title">Shopping Cart</h3>
-                                <p class="project__description">A dynamic cart system with features for adding, updating, and removing items.</p>
-                                <a href="https://github.com/Gobind147/Shopping-Cart" class="button" target="_blank">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Item 2 -->
-                    <div class="swiper-slide">
-                        <div class="project__item">
-                            <img src="assets/Task-manager-apps-scaled.jpg" alt="Task Manager" class="project__img">
-                            <div class="project__content">
-                                <h3 class="project__title">Task Manager API</h3>
-                                <p class="project__description">A CRUD-based task management API using Node.js, Express, and MongoDB.</p>
-                                <a href="https://github.com/Gobind147/Task-Manager" class="button" target="_blank">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Item 3 -->
-                    <div class="swiper-slide">
-                        <div class="project__item">
-                            <img src="assets/selfdrivingnew.png" alt="Self-Driving Car Control" class="project__img">
-                            <div class="project__content">
-                                <h3 class="project__title">Self-Driving Car Control</h3>
-                                <p class="project__description">Implemented PID controller for lateral control and adaptive cruise control for longitudinal control.</p>
-                                <a href="https://github.com/Gobind147/Lateral-and-Logitudinal-Control-of-Self-Driving-Vehicle" class="button" target="_blank">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="swiper-wrapper" id="projectList"></div> <!-- Dynamic Project List -->
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
         </section>
 
+       <!--==================== MAP ====================-->
+<section id="map" class="map section">
+    <h2 class="section__title">Map</h2>
+    <div class="map__container">
+        <div id="mapid" style="height: 400px;"></div> <!-- Leaflet.js map -->
+    </div>
+</section>
+
+
         <!--==================== CONTACT ====================-->
-        <section class="contact section" id="contact" style="background-color: #ffffff;">
+        <section class="contact section" id="contact">
             <div class="contact__container container">
                 <h2 class="section__title">Contact Me</h2>
                 <div class="contact__content">
-                    <form action="mailto:gobindkumar19095@gmail.com" method="post" enctype="text/plain" class="contact__form">
+                    <form action="/send-email" method="post" class="contact__form">
                         <div class="contact__form-div">
                             <label for="name" class="contact__form-tag">Name</label>
                             <input type="text" id="name" name="name" placeholder="Insert your name" class="contact__form-input">
@@ -167,65 +128,35 @@
     </main>
 
     <!--==================== FOOTER ====================-->
-        <!--==================== FOOTER ====================-->
-        <footer class="footer section">
-            <div class="footer__container container grid">
-                <div class="footer__content">
-                    <h3 class="footer__title">Gobind Kumar</h3>
-                    <p class="footer__description">Full Stack Developer</p>
-                </div>
-                <div class="footer__content">
-                    <h3 class="footer__title">Social</h3>
-                    <div class="footer__social">
-                        <a href="https://www.linkedin.com/in/gobind-kumar-0332b21a2/" target="_blank" class="footer__social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://github.com/Gobind147" target="_blank" class="footer__social-link"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://leetcode.com/u/gobind147/" target="_blank" class="footer__social-link"><i class="fas fa-code"></i> LeetCode</a>
-                    </div>
-                </div>
-                <div class="footer__content">
-                    <h3 class="footer__title">Contact</h3>
-                    <p class="footer__description">Email: gobindkumar19095@gmail.com</p>
-                    <p class="footer__description">Bangalore, India</p>
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">Gobind Kumar</h3>
+                <p class="footer__description">Full Stack Developer</p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Social</h3>
+                <div class="footer__social">
+                    <a href="https://www.linkedin.com/in/gobind-kumar-0332b21a2/" target="_blank" class="footer__social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/Gobind147" target="_blank" class="footer__social-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://leetcode.com/u/gobind147/" target="_blank" class="footer__social-link"><i class="fas fa-code"></i> LeetCode</a>
                 </div>
             </div>
-        </footer>
-    
-    
+            <div class="footer__content">
+                <h3 class="footer__title">Contact</h3>
+                <p class="footer__description">Email: gobindkumar19095@gmail.com</p>
+                <p class="footer__description">Bangalore, India</p>
+            </div>
+        </div>
+    </footer>
+
     <!--==================== SWIPER JS ====================-->
     <script src="js/swiper-bundle.min.js"></script>
-
+    <!--==================== CHART JS ====================-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--==================== LEAFLET JS ====================-->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <!--==================== MAIN JS ====================-->
     <script src="js/main.js"></script>
-
-    <!--==================== THEME TOGGLE JS ====================-->
-    <script>
-        const themeButton = document.getElementById('theme-button');
-        const darkTheme = 'dark-theme';
-        const iconTheme = 'fa-sun';
-
-        // Previously selected theme (if user selected)
-        const selectedTheme = localStorage.getItem('selected-theme');
-        const selectedIcon = localStorage.getItem('selected-icon');
-
-        // Obtain the current theme by validating the dark-theme class
-        const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
-        const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'fa-moon' : 'fa-sun';
-
-        // Validate if the user previously chose a theme
-        if (selectedTheme) {
-            document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
-            themeButton.classList[selectedIcon === 'fa-sun' ? 'add' : 'remove'](iconTheme);
-        }
-
-        // Activate/deactivate the theme manually with the button
-        themeButton.addEventListener('click', () => {
-            // Add or remove the dark / icon theme
-            document.body.classList.toggle(darkTheme);
-            themeButton.classList.toggle(iconTheme);
-            // Save the current theme and icon that the user chose
-            localStorage.setItem('selected-theme', getCurrentTheme());
-            localStorage.setItem('selected-icon', getCurrentIcon());
-        });
-    </script>
 </body>
 </html>

@@ -554,3 +554,48 @@ img {
     margin-right: 2rem;
     animation: slideInLeft 1s ease-out; /* Apply slide in left animation to icons */
   }
+
+
+  /* skills section styling   */
+
+  .skills__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 2rem;
+}
+
+.skills__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--first-color-light);
+    border-radius: 12px;
+    padding: 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skills__item i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--first-color);
+}
+
+.skills__item span {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.skills__item:hover {
+    transform: translateY(-5px);
+    background-color: var(--first-color-alt);
+}
+
+
+
+.map__container {
+  width: 80%; /* Set width to 80% of the container */
+  margin: 0 auto; /* Center the map horizontally */
+  padding-top: 1rem; /* Optional padding for spacing */
+}
